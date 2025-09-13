@@ -15,6 +15,9 @@ $desktop-screen: 992px;
     padding: 3px;
     justify-content: end;
     mix-blend-mode: difference;
+    overflow: hidden;
+    width: 500px;
+    height: 50px;
   }
 
   @media (min-width: $mobile-screen) {
@@ -22,16 +25,17 @@ $desktop-screen: 992px;
 }
 
 .navLink {
-  padding-right: 10vh;
+  display: flex;
 }
 .navbtn {
+  display: flex;
   font: 100% $font-stack;
   color: $text-color;
   border-color: transparent;
   background: transparent;
-  padding: 5px;
-  margin-left: 5;
-  margin-right: 5;
+  padding: 0;
+  margin-left: 10;
+  margin-right: 10;
 }
 .contact {
 }
