@@ -1,0 +1,37 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: pink;
+$text-color: white;
+$secondary-color: #1c1c1c;
+$mobile-screen: 480px;
+$desktop-screen: 992px;
+
+.nav {
+  @media (min-width: $desktop-screen) {
+    display: flex;
+    left: 50%;
+    position: fixed;
+    top: calc(var(--spacing) * 0);
+    border-radius: 14px;
+    padding: 3px;
+    justify-content: end;
+    mix-blend-mode: difference;
+  }
+
+  @media (min-width: $mobile-screen) {
+  }
+}
+
+.navLink {
+  padding-right: 10vh;
+}
+.navbtn {
+  font: 100% $font-stack;
+  color: $text-color;
+  border-color: transparent;
+  background: transparent;
+  padding: 5px;
+  margin-left: 5;
+  margin-right: 5;
+}
+.contact {
+}

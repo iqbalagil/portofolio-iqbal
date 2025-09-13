@@ -1,0 +1,40 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: pink;
+$text-color: white;
+$secondary-color: #1c1c1c;
+$mobile-screen: 480px;
+$desktop-screen: 992px;
+
+html,
+body {
+  min-height: 100vh;
+  background-color: $secondary-color;
+  font: 100% $font-stack;
+  color: $primary-color;
+  pointer-events: none;
+  cursor: none !important;
+}
+
+.parallaxPage {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  flex-direction: row;
+  gap: 2vh;
+  padding: 2px;
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+  }
+  .column2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.title1 {
+  font-size: 10vh;
+}
