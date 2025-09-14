@@ -29,9 +29,11 @@ const Navbar = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
           </button>
         </Magnetic>
       </nav>
-      <button ref={setButtonRefs} className={styles.navbtn}>
-        Contact
-      </button>
+      <Magnetic>
+        <button ref={setButtonRefs} className={styles.navbtn}>
+          Contact
+        </button>
+      </Magnetic>
     </div>
   );
 });
