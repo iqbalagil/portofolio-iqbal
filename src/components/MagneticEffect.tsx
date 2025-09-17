@@ -28,7 +28,7 @@ export default function Magnetic({
   ref,
   children,
   strength = 0.5,
-  range = 120,
+  range = 80,
   springOption = { stiffness: 100, damping: 10, mass: 0.5 },
   onlyOnHover = false,
   disableOnTouch = true,

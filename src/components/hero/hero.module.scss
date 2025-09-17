@@ -1,0 +1,31 @@
+@use "@/app/globals.module" as globals;
+
+.hero {
+  display: flex;
+  color: globals.$text-color;
+  font: 100% globals.$font-stack;
+  justify-content: center;
+  .heroTitle {
+    .text {
+      @media (min-width: globals.$desktop-screen) {
+        position: relative;
+        top: 20vh;
+        font-size: 50vh;
+        overflow: hidden;
+        white-space: nowrap;
+        text-transform: uppercase;
+      }
+      @media (min-width: globals.$mobile-screen) {
+        position: relative;
+        top: 20vh;
+        font-size: 21vh;
+      }
+    }
+    .name {
+      position: relative;
+      margin: 0;  
+      top: 20vh;
+      font-size: 50px;
+    }
+  }
+}

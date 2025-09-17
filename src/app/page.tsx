@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import styles from "./globals.module.scss";
+import Hero from "@/components/hero";
 import Header from "../components/header";
 import Cursor from "../components/stickyCursor";
 
@@ -17,9 +18,7 @@ export default function OnePage() {
     <div>
       <Header setButtonRefs={setButtonRefs} />
       <Cursor buttons={buttonRefs} />
-      <div className="parallaxPage">
-        <p>Hello World</p>
-      </div>
+      <Hero />
     </div>
   );
 }

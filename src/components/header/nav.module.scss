@@ -1,7 +1,7 @@
 $font-stack: Helvetica, sans-serif;
-$primary-color: pink;
-$text-color: white;
-$secondary-color: #1c1c1c;
+$primary-color: #272727;
+$text-color: #eff7ff;
+$secondary-color: #fed766;
 $mobile-screen: 480px;
 $desktop-screen: 992px;
 
@@ -21,6 +21,10 @@ $desktop-screen: 992px;
   }
 
   @media (min-width: $mobile-screen) {
+    display: flex;
+    mix-blend-mode: difference;
+    justify-content: center;
+    margin-top: 15px;
   }
 }
 
