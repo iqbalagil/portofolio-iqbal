@@ -4,28 +4,31 @@
   display: flex;
   color: globals.$text-color;
   font: 100% globals.$font-stack;
-  justify-content: center;
+  flex-direction: column;
+  margin: 10;
   .heroTitle {
+    margin-top: 50px;
     .text {
       @media (min-width: globals.$desktop-screen) {
-        position: relative;
-        top: 20vh;
         font-size: 50vh;
-        overflow: hidden;
-        white-space: nowrap;
         text-transform: uppercase;
       }
       @media (min-width: globals.$mobile-screen) {
-        position: relative;
-        top: 20vh;
         font-size: 21vh;
       }
     }
-    .name {
-      position: relative;
-      margin: 0;  
-      top: 20vh;
-      font-size: 50px;
+    .introduce {
+      display: flex;
+      justify-content: space-between;
+      .name {
+        font-size: 50px;
+      }
+      .p {
+        text-wrap: pretty;
+        width: 500px;
+        margin: 10;
+        font-size: 21px;
+      }
     }
   }
 }

@@ -1,13 +1,21 @@
 import styles from "@/components/hero/hero.module.scss";
+import { animate } from "motion";
 import { motion, stagger } from "motion/react";
+import { span } from "motion/react-client";
 export default function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles.heroTitle}>
         <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
-        <TransitionText className={styles.name}>
-          IQBAL AGIL BRAMANTIO
-        </TransitionText>
+        <div className={styles.introduce}>
+          <TransitionText className={styles.name}>
+            IQBAL AGIL BRAMANTIO
+          </TransitionText>
+          <TransitionText className={styles.p}>
+            I&apos;am dedicated to make professional website with cool and
+            interactive animation some of the work you can look at
+          </TransitionText>
+        </div>
       </div>
       <div></div>
     </div>
@@ -24,37 +32,37 @@ const TransitionText = ({
   return (
     <motion.div
       initial="initial"
-      whileInView="whileInView"
+      animate="animate"
       transition={{
         delayChildren: stagger(0.02),
         type: "spring",
       }}
-      animate={{
-        translateY: "20px",
-      }}
       className={className}
+      aria-hidden
     >
-      <motion.div>
-        {children.split("").map((l, i) => {
-          return (
+      {children.split(" ").map((word, m) => (
+        <span key={m} style={{ display: "inline-block" }}>
+          {word.split("").map((l, i) => (
             <motion.span
               variants={{
                 initial: {
                   opacity: 0,
-                  y: "0px",
+                  y: 10,
                 },
-                whileInView: {
+                animate: {
                   opacity: 1,
-                  y: "100px",
+                  y: 0,
                 },
               }}
               key={i}
+              style={{ display: "inline-block" }}
             >
               {l}
             </motion.span>
-          );
-        })}
-      </motion.div>
+          ))}
+          <span>&nbsp;</span>
+        </span>
+      ))}
     </motion.div>
   );
 };
