@@ -1,11 +1,5 @@
 "use client";
-import {
-  HTMLMotionProps,
-  motion,
-  SpringOptions,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
+import gsap from "gsap";
 import React, {
   ReactElement,
   useCallback,
@@ -15,21 +9,31 @@ import React, {
   useState,
 } from "react";
 
+type SpringConfig = {
+  stiffness?: number;
+  damping?: number;
+  mass?: number;
+};
+
 type MagneticProps = {
   children?: ReactElement;
   strength?: number;
   range?: number;
-  springOption?: SpringOptions;
+  springOption?: SpringConfig;
   onlyOnHover?: boolean;
   disableOnTouch?: boolean;
-} & HTMLMotionProps<"div">;
+  style?: React.CSSProperties;
+  onMouseEnter?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseMove?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  ref?: React.Ref<HTMLDivElement>;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export default function Magnetic({
   ref,
   children,
   strength = 0.5,
   range = 80,
-  springOption = { stiffness: 100, damping: 10, mass: 0.5 },
   onlyOnHover = false,
   disableOnTouch = true,
   style,
@@ -48,10 +52,10 @@ export default function Magnetic({
 
   const [active, setActive] = useState(!onlyOnHover);
 
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
-  const x = useSpring(rawX, springOption);
-  const y = useSpring(rawY, springOption);
+  // Convert spring config to GSAP easing
+  const gsapEase = useMemo(() => {
+    return `power2.out`;
+  }, []);
 
   const compute = useCallback(
     (e: MouseEvent | React.MouseEvent) => {
@@ -64,16 +68,24 @@ export default function Magnetic({
       const dy = e.clientY - cy;
       const dist = Math.hypot(dx, dy);
 
+      let newX = 0;
+      let newY = 0;
+
       if ((active || !onlyOnHover) && dist <= range) {
         const factor = (1 - dist / range) * strength;
-        rawX.set(dx * factor);
-        rawY.set(dy * factor);
-      } else {
-        rawX.set(0);
-        rawY.set(0);
+        newX = dx * factor;
+        newY = dy * factor;
       }
+
+      // Animate with GSAP
+      gsap.to(localRef.current, {
+        x: newX,
+        y: newY,
+        duration: 0.4,
+        ease: gsapEase,
+      });
     },
-    [active, onlyOnHover, range, strength, rawX, rawY]
+    [active, onlyOnHover, range, strength, gsapEase]
   );
 
   React.useEffect(() => {
@@ -83,17 +95,23 @@ export default function Magnetic({
   }, [compute, disableOnTouch, isTouchDevice]);
 
   return (
-    <motion.div
+    <div
       ref={localRef}
-      style={{ display: "inline-block", ...style, x, y }}
+      style={{ display: "inline-block", ...style }}
       onMouseEnter={(e) => {
         if (onlyOnHover) setActive(true);
         onMouseEnter?.(e);
       }}
       onMouseLeave={(e) => {
         if (onlyOnHover) setActive(false);
-        rawX.set(0);
-        rawY.set(0);
+        if (localRef.current) {
+          gsap.to(localRef.current, {
+            x: 0,
+            y: 0,
+            duration: 0.4,
+            ease: gsapEase,
+          });
+        }
         onMouseLeave?.(e);
       }}
       onMouseMove={(e) => {
@@ -103,7 +121,7 @@ export default function Magnetic({
       {...props}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
