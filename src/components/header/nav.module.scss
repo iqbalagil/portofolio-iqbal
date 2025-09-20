@@ -1,45 +1,33 @@
-$font-stack: Helvetica, sans-serif;
-$primary-color: #272727;
-$text-color: #eff7ff;
-$secondary-color: #fed766;
-$mobile-screen: 480px;
-$desktop-screen: 992px;
+@use "@/app/globals.module" as globals;
 
 .nav {
-  @media (min-width: $desktop-screen) {
+  @media (min-width: globals.$desktop-screen) {
+    width: 100%;
     display: flex;
-    left: 50%;
     position: fixed;
     top: calc(var(--spacing) * 0);
     border-radius: 14px;
-    padding: 3px;
-    justify-content: end;
-    mix-blend-mode: difference;
+    justify-content: space-around;
+    align-items: center;
     overflow: hidden;
-    width: 500px;
-    height: 50px;
   }
 
-  @media (min-width: $mobile-screen) {
+  // @media (min-width: globals.$mobile-screen) {
+  //   display: flex;
+  //   justify-content: center;
+  // }
+  .navLink {
     display: flex;
-    mix-blend-mode: difference;
-    justify-content: center;
-    margin-top: 15px;
   }
-}
-
-.navLink {
-  display: flex;
-}
-.navbtn {
-  display: flex;
-  font: 100% $font-stack;
-  color: $text-color;
-  border-color: transparent;
-  background: transparent;
-  padding: 0;
-  margin-left: 10;
-  margin-right: 10;
-}
-.contact {
+  .navbtn {
+    display: flex;
+    font: 100% globals.$font-text;
+    color: globals.$text-color;
+    mix-blend-mode: difference;
+    border-color: transparent;
+    background: transparent;
+    padding: 0;
+    margin-left: 10;
+    margin-right: 10;
+  }
 }

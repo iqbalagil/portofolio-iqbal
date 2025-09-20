@@ -12,28 +12,21 @@ const Navbar = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
 ) {
   return (
     <div ref={ref} className={styles.nav}>
+      <button></button>
       <nav className={styles.navLink}>
-        <Magnetic>
-          <button ref={setButtonRefs} className={styles.navbtn}>
-            Work
-          </button>
-        </Magnetic>
-        <Magnetic>
-          <button ref={setButtonRefs} className={styles.navbtn}>
-            About
-          </button>
-        </Magnetic>
-        <Magnetic>
-          <button ref={setButtonRefs} className={styles.navbtn}>
-            Social
-          </button>
-        </Magnetic>
-      </nav>
-      <Magnetic>
         <button ref={setButtonRefs} className={styles.navbtn}>
-          Contact
+          Work
         </button>
-      </Magnetic>
+        <button ref={setButtonRefs} className={styles.navbtn}>
+          About
+        </button>
+        <button ref={setButtonRefs} className={styles.navbtn}>
+          Social
+        </button>
+      </nav>
+      <button ref={setButtonRefs} className={styles.navbtn}>
+        Contact
+      </button>
     </div>
   );
 });

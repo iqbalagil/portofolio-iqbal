@@ -1,10 +1,15 @@
 import styles from "@/components/hero/hero.module.scss";
-import { animate } from "motion";
-import { motion, stagger } from "motion/react";
-import { span } from "motion/react-client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ArrowDown } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
+
+gsap.registerPlugin(useGSAP);
+
 export default function Hero() {
   return (
-    <div className={styles.hero}>
+    <section className={styles.hero}>
       <div className={styles.heroTitle}>
         <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
         <div className={styles.introduce}>
@@ -17,8 +22,24 @@ export default function Hero() {
           </TransitionText>
         </div>
       </div>
-      <div></div>
-    </div>
+      <motion.div>
+        <Image src="/cantik.jpg" alt="testing" width={300} height={350} />
+      </motion.div>
+      <motion.div
+        className={styles.scrollInfo}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className={styles.layout}
+          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ y: [0, 10, 0] }}
+        >
+          <span>Scroll to explore</span>
+          <ArrowDown />
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }
 
@@ -29,40 +50,14 @@ const TransitionText = ({
   children: string;
   className: string;
 }) => {
+  useGSAP(() => {
+    gsap.from(className,
+       {
+        x: 20,
+        
+       }) 
+  })
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      transition={{
-        delayChildren: stagger(0.02),
-        type: "spring",
-      }}
-      className={className}
-      aria-hidden
-    >
-      {children.split(" ").map((word, m) => (
-        <span key={m} style={{ display: "inline-block" }}>
-          {word.split("").map((l, i) => (
-            <motion.span
-              variants={{
-                initial: {
-                  opacity: 0,
-                  y: 10,
-                },
-                animate: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              key={i}
-              style={{ display: "inline-block" }}
-            >
-              {l}
-            </motion.span>
-          ))}
-          <span>&nbsp;</span>
-        </span>
-      ))}
-    </motion.div>
+    
   );
 };

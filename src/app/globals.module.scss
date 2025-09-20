@@ -1,12 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
-$font-stack: "Bebas Neue", sans-serif;
-$primary-color: #272727;
+$font-text: "Rubik";
+$font-highlight: "Bungee";
+$background-color: #272727;
 $text-color: #eff7ff;
-$secondary-color: #fed766;
-$highlight-color: #558c8c;
+$primary-color: #ff8ebd;
+$secondary-color: #878f96;
 $mobile-screen: 480px;
 $desktop-screen: 992px;
+$accent-color: #fcfffa;
 
 html {
   pointer-events: none;
@@ -14,7 +17,5 @@ html {
 }
 body {
   overflow: hidden;
-  background-color: $secondary-color;
-  font: 100% $font-stack;
-  color: $primary-color;
+  background-color: $background-color;
 }

@@ -2,16 +2,19 @@
 
 .hero {
   display: flex;
-  color: globals.$text-color;
-  font: 100% globals.$font-stack;
   flex-direction: column;
-  margin: 10;
+  align-items: center;
+  justify-content: center;
+  color: globals.$text-color;
+  margin: 8;
   .heroTitle {
     margin-top: 50px;
     .text {
       @media (min-width: globals.$desktop-screen) {
-        font-size: 50vh;
+        font-size: 52vh;
         text-transform: uppercase;
+        font-family: globals.$font-highlight;
+        font-weight: 400;
       }
       @media (min-width: globals.$mobile-screen) {
         font-size: 21vh;
@@ -21,14 +24,28 @@
       display: flex;
       justify-content: space-between;
       .name {
-        font-size: 50px;
+        font-family: globals.$font-text;
+        font-size: 60px;
       }
       .p {
+        color: globals.$accent-color;
         text-wrap: pretty;
         width: 500px;
         margin: 10;
-        font-size: 21px;
+        font-size: 24px;
+        font-family: globals.$font-text;
       }
+    }
+  }
+  .scrollInfo {
+    position: absolute;
+    bottom: 8;
+    margin-bottom: 10px;
+    .layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
     }
   }
 }
