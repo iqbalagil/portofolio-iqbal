@@ -1,34 +1,16 @@
 import React, { forwardRef } from "react";
 import styles from "./nav.module.scss";
-import Magnetic from "@/components/MagneticEffect";
 
-interface NavbarProps {
-  setButtonRefs?: (el: HTMLButtonElement | null) => void;
-}
-
-const Navbar = forwardRef<HTMLDivElement, NavbarProps>(function Navbar(
-  { setButtonRefs },
-  ref
-) {
+export default function Navbar() {
   return (
-    <div ref={ref} className={styles.nav}>
+    <div className={styles.nav}>
       <button></button>
       <nav className={styles.navLink}>
-        <button ref={setButtonRefs} className={styles.navbtn}>
-          Work
-        </button>
-        <button ref={setButtonRefs} className={styles.navbtn}>
-          About
-        </button>
-        <button ref={setButtonRefs} className={styles.navbtn}>
-          Social
-        </button>
+        <button className={styles.navbtn}>Work</button>
+        <button className={styles.navbtn}>About</button>
+        <button className={styles.navbtn}>Social</button>
       </nav>
-      <button ref={setButtonRefs} className={styles.navbtn}>
-        Contact
-      </button>
+      <button className={styles.navbtn}>Contact</button>
     </div>
   );
-});
-
-export default Navbar;
+}
