@@ -1,11 +1,12 @@
 import styles from "@/components/hero/hero.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Hero() {
   return (
@@ -22,7 +23,8 @@ export default function Hero() {
           </TransitionText>
         </div>
       </div>
-      <motion.div>
+
+      {/* <motion.div>
         <Image src="/cantik.jpg" alt="testing" width={300} height={350} />
       </motion.div>
       <motion.div
@@ -38,7 +40,7 @@ export default function Hero() {
           <span>Scroll to explore</span>
           <ArrowDown />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
@@ -50,14 +52,39 @@ const TransitionText = ({
   children: string;
   className: string;
 }) => {
-  useGSAP(() => {
-    gsap.from(className,
-       {
-        x: 20,
-        
-       }) 
-  })
+  const textRef = useRef<HTMLDivElement>(null);
+  useGSAP(
+    () => {
+      if (textRef.current) {
+        const splitText = new SplitText(textRef.current, {
+          type: "chars",
+          position: "relative",
+        });
+
+        gsap.fromTo(
+          splitText.chars,
+          {
+            opacity: 0,
+            y: 20,
+            rotateX: -90,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            stagger: 0.05,
+            duration: 0.8,
+            ease: "power4.out",
+          }
+        );
+      }
+    },
+    { scope: textRef }
+  );
+
   return (
-    
+    <div ref={textRef} className={className}>
+      {children}
+    </div>
   );
 };
