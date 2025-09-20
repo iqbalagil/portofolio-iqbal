@@ -2,6 +2,8 @@
 
 import { SpringOptions, HTMLMotionProps } from "framer-motion";
 
+// Unused - keeping for future path text animations
+/* 
 type PathTextProps = {
   text?: string;
   strokeColor?: string;
@@ -9,3 +11,4 @@ type PathTextProps = {
   strokeWirdth?: number;
   className?: string;
 } & HTMLMotionProps<"div">;
+*/

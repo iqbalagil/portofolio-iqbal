@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 
 interface CursorProps {
-  buttons: React.RefObject<HTMLButtonElement[]>;
+  buttons?: React.RefObject<HTMLButtonElement[]>; // Made optional since we're detecting all clickable elements
 }
 
-export default function Cursor({ buttons }: CursorProps) {
+export default function Cursor(_props: CursorProps) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [target, setTarget] = useState<{ x: number; y: number } | null>(null);
   const [cursorState, setCursorState] = useState<'default' | 'hover' | 'click'>('default');
