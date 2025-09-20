@@ -1,7 +1,6 @@
 "use client";
 
-import { SpringOptions } from "motion";
-import { HTMLMotionProps } from "motion/react";
+import { SpringOptions, HTMLMotionProps } from "framer-motion";
 
 type PathTextProps = {
   text?: string;

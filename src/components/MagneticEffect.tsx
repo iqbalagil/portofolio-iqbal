@@ -5,7 +5,7 @@ import {
   SpringOptions,
   useMotionValue,
   useSpring,
-} from "motion/react";
+} from "framer-motion";
 import React, {
   ReactElement,
   useCallback,
