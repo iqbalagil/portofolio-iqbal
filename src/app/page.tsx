@@ -15,9 +15,9 @@ export default function OnePage() {
   };
 
   return (
-    <div>
-      {/* <Header setButtonRefs={setButtonRefs} />
-      <Cursor buttons={buttonRefs} /> */}
+    <div className={styles.pageContainer}>
+      <Header setButtonRefs={setButtonRefs} />
+      <Cursor buttons={buttonRefs} />
       <Hero />
     </div>
   );

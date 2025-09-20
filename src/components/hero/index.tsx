@@ -3,45 +3,44 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ArrowDown } from "lucide-react";
-import Image from "next/image";
 import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroTitle}>
-        <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
-        <div className={styles.introduce}>
-          <TransitionText className={styles.name}>
-            IQBAL AGIL BRAMANTIO
-          </TransitionText>
-          <TransitionText className={styles.p}>
-            I&apos;am dedicated to make professional website with cool and
-            interactive animation some of the work you can look at
-          </TransitionText>
+    <>
+      <section className={styles.hero}>
+        <div className={styles.heroTitle}>
+          <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
+          <div className={styles.introduce}>
+            <TransitionText className={styles.name}>
+              IQBAL AGIL BRAMANTIO
+            </TransitionText>
+            <TransitionText className={styles.p}>
+              I&apos;m dedicated to making professional websites with cool and
+              interactive animations. Some of the work you can look at below.
+            </TransitionText>
+          </div>
         </div>
-      </div>
 
-      {/* <motion.div>
-        <Image src="/cantik.jpg" alt="testing" width={300} height={350} />
-      </motion.div>
-      <motion.div
-        className={styles.scrollInfo}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <motion.div
-          className={styles.layout}
-          transition={{ duration: 2, repeat: Infinity }}
-          animate={{ y: [0, 10, 0] }}
-        >
-          <span>Scroll to explore</span>
-          <ArrowDown />
-        </motion.div>
-      </motion.div> */}
-    </section>
+        <div className={styles.scrollInfo}>
+          <div className={styles.layout}>
+            <span>Scroll to explore</span>
+            <ArrowDown size={20} />
+          </div>
+        </div>
+      </section>
+
+      {/* Demo sections to test scroll behavior */}
+      <section className={styles.demoSection}>
+        <h2>Work Section</h2>
+      </section>
+      
+      <section className={styles.demoSection}>
+        <h2>About Section</h2>
+      </section>
+    </>
   );
 }
 

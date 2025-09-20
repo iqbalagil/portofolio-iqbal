@@ -6,46 +6,87 @@
   align-items: center;
   justify-content: center;
   color: globals.$text-color;
-  margin: 8;
+  min-height: 100vh;
+  padding: 100px 2rem 2rem;
+  position: relative;
+  
   .heroTitle {
-    margin-top: 50px;
+    text-align: center;
+    
     .text {
       @media (min-width: globals.$desktop-screen) {
-        font-size: 52vh;
+        font-size: 12vw;
         text-transform: uppercase;
         font-family: globals.$font-highlight;
         font-weight: 400;
+        line-height: 0.9;
       }
-      @media (min-width: globals.$mobile-screen) {
-        font-size: 21vh;
+      @media (max-width: globals.$desktop-screen) {
+        font-size: 15vw;
+        text-transform: uppercase;
+        font-family: globals.$font-highlight;
+        font-weight: 400;
+        line-height: 0.9;
       }
     }
+    
     .introduce {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-top: 2rem;
+      
+      @media (max-width: globals.$desktop-screen) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
       .name {
         font-family: globals.$font-text;
-        font-size: 60px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 600;
+        color: globals.$primary-color;
       }
+      
       .p {
         color: globals.$accent-color;
         text-wrap: pretty;
-        width: 500px;
-        margin: 10;
-        font-size: 24px;
+        max-width: 500px;
+        font-size: clamp(1rem, 2vw, 1.5rem);
         font-family: globals.$font-text;
+        line-height: 1.6;
       }
     }
   }
+  
   .scrollInfo {
     position: absolute;
-    bottom: 8;
-    margin-bottom: 10px;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
     .layout {
       display: flex;
       flex-direction: column;
       align-items: center;
-      align-content: center;
+      gap: 0.5rem;
+      color: globals.$secondary-color;
+      font-family: globals.$font-text;
+      font-size: 0.9rem;
     }
   }
+}
+
+// Add some demo content sections for scroll testing
+.demoSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: globals.$font-text;
+  font-size: 2rem;
+  color: globals.$text-color;
+  background: linear-gradient(45deg, rgba(255, 142, 189, 0.1), rgba(252, 255, 250, 0.05));
 }
