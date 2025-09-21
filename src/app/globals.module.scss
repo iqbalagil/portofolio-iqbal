@@ -1,19 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
-$font-text: "Rubik";
-$font-highlight: "Bungee";
+$font-text: "Rubik", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+$font-highlight: "Bungee", cursive;
+
 $background-color: #272727;
 $text-color: #eff7ff;
 $primary-color: #ff8ebd;
 $secondary-color: #878f96;
-$mobile-screen: 480px;
-$desktop-screen: 992px;
 $accent-color: #fcfffa;
 
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 24px;
+
+$space-0: 0;
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+
+
+$bp-desktop: 992px;
+$bp-tablet: 768px;
+$bp-mobile: 480px;
+$bp-mobile-sm: 320px;
+
+@mixin respond-min($bp){
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
 html {
-  pointer-events: none;
   cursor: none;
+  pointer-events: auto;
 }
 body {
   overflow: hidden;
