@@ -5,10 +5,10 @@ import Cursor from "../components/stickyCursor";
 
 export default function OnePage() {
   return (
-    <div>
+    <>
       <Header />
       <Cursor />
       {/* <Hero /> */}
-    </div>
+    </>
   );
 }

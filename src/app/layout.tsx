@@ -1,10 +1,11 @@
-import styles from "@/app/globals.module.scss";
+import  "@/app/globals.module.scss";
+import {ReactNode} from "react";
 
-export default function Porto({ children }: { children: React.ReactNode }) {
+export default function Porto({ children }: { children: ReactNode }) {
   return (
     <html>
       <body>
-        <main className={styles.main}>{children}</main>
+        <div>{children}</div>
       </body>
     </html>
   );

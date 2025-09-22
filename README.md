@@ -20,6 +20,28 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Auto format with ESLint on save (terminal-based)
+
+If you want the code to be automatically formatted with ESLint every time you save a file, run the watcher in a separate terminal:
+
+```bash
+# install deps if needed
+npm i
+
+# start the ESLint watcher
+npm run lint:watch
+```
+
+The watcher listens for changes in src/**/* and runs `eslint --fix` on the changed file without any prompts.
+
+You can also format the whole project at any time with:
+
+```bash
+npm run lint:fix
+```
+
+Note: IDE-integrated "format on save" settings (WebStorm/VS Code) can still be enabled per user; this watcher provides a repository-based alternative that works from the terminal.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

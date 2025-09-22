@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix .",
+    "lint:watch": "chokidar 'src/**/*.{ts,tsx,js,jsx,mjs,cjs,scss,css}' -c \"eslint --fix {path}\""
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -27,6 +29,7 @@
     "eslint-config-next": "15.5.2",
     "sass": "^1.92.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "chokidar-cli": "^3.0.0"
   }
 }

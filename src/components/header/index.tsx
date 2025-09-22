@@ -7,31 +7,41 @@ gsap.registerPlugin(useGSAP);
 
 export default function Navbar() {
 
-  const [isOpen, setIsOpen] = useState(false);
-  const container = useRef<HTMLDivElement>(null);
-  const toggle = () => setIsOpen(!isOpen);
+    const [isOpen, setIsOpen] = useState(false);
+    const container = useRef<HTMLDivElement>(null);
+    const toggle = () => setIsOpen(!isOpen);
 
-  useGSAP(() => {
-      if (isOpen) {gsap.to(styles.nav, {duration: 0.5, opacity: 1})
-      }
-  })
+    useGSAP(() => {
+        if (isOpen) {
+            gsap.to(styles.burger, {duration: 0.5, opacity: 1})
+        }
+    })
     return (
-    <div className={styles.nav}>
-      <nav className={styles.navLink}>
-          <div className={styles.burger}/>
-        {/*<button className={styles.navBtnLink}>*/}
-        {/*  <span className={styles.text}>Work</span>*/}
-        {/*</button>*/}
-        {/*<button className={styles.navBtnLink}>*/}
-        {/*  <span className={styles.text}>About</span>*/}
-        {/*</button>*/}
-        {/*<button className={styles.navBtnLink}>*/}
-        {/*  <span className={styles.text}>Social</span>*/}
-        {/*</button>*/}
-      </nav>
-        <button aria-label="Menu" className={styles.iconBtn} />
+        <nav className={styles.nav}>
+            <div onClick={() => {
+                setIsOpen(!isOpen)
+            }} className={styles.navLink}>
+                <div className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`}>
+                    {/*<button className={styles.navBtnLink}>*/}
+                    {/*  <span className={styles.text}>Work</span>*/}
+                    {/*</button>*/}
+                    {/*<button className={styles.navBtnLink}>*/}
+                    {/*  <span className={styles.text}>About</span>*/}
+                    {/*</button>*/}
+                    {/*<button className={styles.navBtnLink}>*/}
+                    {/*  <span className={styles.text}>Social</span>*/}
+                    {/*</button>*/}
+                </div>
+            </div>
+            <div>
+                <button className={styles.iconBtn}/>
 
-      <button className={styles.navBtnLink}>Let's Talk</button>
-    </div>
-  );
+            </div>
+            <button className={styles.navBtnLink}>
+                <span className={styles.text}>
+                    LET&apos;S TALK
+                </span>
+            </button>
+        </nav>
+    );
 }
