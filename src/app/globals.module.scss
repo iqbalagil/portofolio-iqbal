@@ -28,6 +28,13 @@ $bp-tablet: 768px;
 $bp-mobile: 480px;
 $bp-mobile-sm: 320px;
 
+$h1-text : 2.5rem;
+$h2-text : 2rem;
+$h3-text : 1.75rem;
+$h4-text : 1.5rem;
+$h5-text : 1.25rem;
+$h6-text : 1rem;
+
 @mixin respond-min($bp){
   @media (min-width: $bp) {
     @content;
