@@ -10,21 +10,28 @@ gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroTitle}>
-        <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
-        <div className={styles.introduce}>
-          <TransitionText className={styles.name}>
-            IQBAL AGIL BRAMANTIO
-          </TransitionText>
-          <TransitionText className={styles.p}>
-            I&apos;am dedicated to make professional website with cool and
-            interactive animation some of the work you can look at
-          </TransitionText>
+      <section className={styles.hero}>
+        <div className={styles.heroTitle}>
+            <span>
+                Hello, I&apos;m
+            </span>
         </div>
-      </div>
+      </section>
+    // <section className={styles.hero}>
+    //   <div className={styles.heroTitle}>
+    //     <TransitionText className={styles.text}>WEB DEVELOPER</TransitionText>
+    //     <div className={styles.introduce}>
+    //       <TransitionText className={styles.name}>
+    //         IQBAL AGIL BRAMANTIO
+    //       </TransitionText>
+    //       <TransitionText className={styles.p}>
+    //         I&apos;am dedicated to make professional website with cool and
+    //         interactive animation some of the work you can look at
+    //       </TransitionText>
+    //     </div>
+    //   </div>
 
-      {/* <motion.div>
+      /* <motion.div>
         <Image src="/cantik.jpg" alt="testing" width={300} height={350} />
       </motion.div>
       <motion.div
@@ -40,8 +47,8 @@ export default function Hero() {
           <span>Scroll to explore</span>
           <ArrowDown />
         </motion.div>
-      </motion.div> */}
-    </section>
+      </motion.div> */
+    // </section>
   );
 }
 

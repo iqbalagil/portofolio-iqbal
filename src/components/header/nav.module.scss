@@ -4,14 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 100%;
 
   @include globals.respond-min(globals.$bp-desktop) {
-    width: 99%;
-    position: fixed;
     justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;
   }
 }
 
@@ -39,16 +36,16 @@
       margin: auto;
       height: 4px;
       background-color: globals.$background-color;
+      transform: translateX(0%);
+      transition: transform 0.3s, opacity 0.3s ease;
     }
 
     &:before {
-      top: 6px;
-      transition: transform 0.3s ease-out;
+      transform: translateY(-2px) rotate(0deg);
     }
 
     &:after {
-      top: -6px;
-      transition: transform 0.3s ease-out;
+      transform: translateY(2px) rotate(0deg);
 
     }
   }
