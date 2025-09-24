@@ -25,9 +25,10 @@
   margin-left: 14px;
 
   .burger {
-    width: 100%;
+    width: 100px;
 
-    &:before, &:after {
+
+    .line1:before, .line2:after {
       content: " ";
       display: block;
       border-radius: 14px;
@@ -37,34 +38,57 @@
       height: 4px;
       background-color: globals.$background-color;
       transform: translateX(0%);
-      transition: transform 0.3s, opacity 0.3s ease;
     }
 
-    &:before {
-      transform: translateY(-2px) rotate(0deg);
-    }
-
-    &:after {
-      transform: translateY(2px) rotate(0deg);
-
-    }
-  }
-
-  .burgerActive {
-    &:before {
-      top: 2px;
-      transform: rotate(-60deg);
-      transition: transform 0.3s ease-in;
-
-    }
-
-    &:after {
+    .line1::before {
+      position: relative;
       top: -2px;
-      transform: rotate(60deg);
-      transition: transform 0.3s ease-in;
+      transition: ease-in;
+    }
+
+    .line2::after {
+      position: relative;
+      top: 2px;
+      transition: ease-in;
 
     }
   }
+  .burgerComponent{
+    right: 0;
+  }
+  .burgerActive {
+    width: 50px;
+
+  .burgerLine{
+    width: 100%;
+  }
+    .line1::before {
+      width: 32px;
+      top: -6px;
+      transform: rotate(-60deg);
+      transition: ease-in-out;
+    }
+
+    .line2::after {
+      top: 6px;
+      width: 32px;
+      transform: rotate(60deg);
+      transition: ease-in-out;
+
+
+    }
+  }
+
+  .text {
+    text-decoration: none;
+    color: #000000;
+    font-family: globals.$font-text;
+    font-weight: bold;
+    display: inline-block;
+    flex-direction: column;
+    gap: 50px;
+  }
+
 }
 
 
