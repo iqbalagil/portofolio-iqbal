@@ -53,40 +53,52 @@
 
     }
   }
-  .burgerComponent{
+
+  .burgerComponent {
     right: 0;
   }
+
   .burgerActive {
-    width: 50px;
+    display: grid;
+    padding: 20px;
+    gap: 20px;
+    width: 99%;
+    height: 99%;
 
-  .burgerLine{
-    width: 100%;
-  }
-    .line1::before {
-      width: 32px;
-      top: -6px;
-      transform: rotate(-60deg);
-      transition: ease-in-out;
+    .burgerLine {
+      position: relative;
+      top: globals.$space-4;
+      width: 0;
+      grid-column: 1;
+      grid-row: 1;
+
+      .line1::before {
+        right: 0;
+        width: 32px;
+        transform: rotate(-60deg);
+        transition: ease-in-out;
+      }
+
+      .line2::after {
+        width: 32px;
+        transform: rotate(60deg);
+        top: -4px;
+        transition: ease-in-out;
+
+      }
     }
 
-    .line2::after {
-      top: 6px;
-      width: 32px;
-      transform: rotate(60deg);
-      transition: ease-in-out;
-
-
-    }
   }
 
   .text {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 10px 0 10px 0;
+    display: block;
     text-decoration: none;
     color: #000000;
     font-family: globals.$font-text;
     font-weight: bold;
-    display: inline-block;
-    flex-direction: column;
-    gap: 50px;
   }
 
 }
